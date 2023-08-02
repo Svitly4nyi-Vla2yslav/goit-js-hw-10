@@ -1,7 +1,11 @@
-import { fetchBreeds, fetchCatByBreed } from "./cat-api";
+import { fetchBreeds, fetchCatByBreed } from './cat-api';
+
+const loaderElement = document.querySelector('p.loader');
+const errorElement = document.querySelector('p.error');
+const catInfoDiv = document.querySelector('div.cat-info');
+const breedSelect = document.querySelector('select.breed-select');
 
 function updateCatInfo(catData) {
-  const catInfoDiv = document.querySelector("div.cat-info");
   catInfoDiv.innerHTML = `
     <img src="${catData.url}" alt="Cat Image">
     <p>Name: ${catData.breeds[0].name}</p>
@@ -11,48 +15,42 @@ function updateCatInfo(catData) {
 }
 
 function showError(error) {
-  const errorElement = document.querySelector("p.error");
-  errorElement.textContent = `Error: ${error.message}`;
-  errorElement.style.display = "block";
+  errorElement.textContent = `${errorElement.textContent}`;
+  errorElement.style.display = 'block';
+  loaderElement.style.display = 'none';
+  breedSelect.style.display = 'none';
 }
 
 function showLoader() {
-  const loaderElement = document.querySelector("p.loader");
-  loaderElement.style.display = "block";
+  loaderElement.style.display = 'block';
 }
-
 
 function hideLoaderAndError() {
-  const loaderElement = document.querySelector("p.loader");
-  const errorElement = document.querySelector("p.error");
-  loaderElement.style.display = "none";
-  errorElement.style.display = "none";
+  loaderElement.style.display = 'none';
+  errorElement.style.display = `${errorElement.textContent}`;
 }
 
-
 function updateBreedSelect(breeds) {
-  const breedSelect = document.querySelector("select.breed-select");
-  breeds.forEach((breed) => {
-    const option = document.createElement("option");
+  breeds.forEach(breed => {
+    const option = document.createElement('option');
     option.value = breed.id;
     option.textContent = breed.name;
     breedSelect.appendChild(option);
   });
+  breedSelect.style.display = 'block';
+  loaderElement.style.display = 'none';
 }
 
 function handleBreedSelectChange() {
-  const breedSelect = document.querySelector("select.breed-select");
   const selectedBreedId = breedSelect.value;
 
- 
   showLoader();
 
   fetchCatByBreed(selectedBreedId)
-    .then((catData) => {
-
+    .then(catData => {
       updateCatInfo(catData[0]);
     })
-    .catch((error) => {
+    .catch(error => {
       showError(error);
     })
     .finally(() => {
@@ -61,12 +59,11 @@ function handleBreedSelectChange() {
 }
 
 fetchBreeds()
-  .then((breeds) => {
+  .then(breeds => {
     updateBreedSelect(breeds);
 
-    const breedSelect = document.querySelector("select.breed-select");
-    breedSelect.addEventListener("change", handleBreedSelectChange);
+    breedSelect.addEventListener('change', handleBreedSelectChange);
   })
-  .catch((error) => {
+  .catch(error => {
     showError(error);
   });

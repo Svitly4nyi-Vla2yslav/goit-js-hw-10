@@ -1,39 +1,53 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-  }
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
 
-  h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-  select.breed-select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    font-size: 16px;
-  }
+select.breed-select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
 
-  div.cat-info {
-    text-align: center;
-  }
+div.cat-info {
+  text-align: center;
+}
 
-  div.cat-info img {
-    width: 50%;
-    height: auto;
-    margin-bottom: 10px;
-  }
+div.cat-info img {
+  width: 50%;
+  height: auto;
+  margin-bottom: 10px;
+}
 
-  p.error {
-    display: none;
-    color: red;
-    text-align: center;
-    font-size: 16px;
-  }
+p.error {
+  display: none;
+  color: red;
+  text-align: center;
+  font-size: 16px;
+}
 
-  p.loader {
-    display: none;
-    text-align: center;
-    font-size: 16px;
+p.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px dotted teal;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  animation: rotation 2s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
   }
+  100% {
+    transform: rotate(360deg);
+  }
+}
