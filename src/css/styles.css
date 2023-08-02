@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  select.breed-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+
+  div.cat-info {
+    text-align: center;
+  }
+
+  div.cat-info img {
+    width: 50%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  p.error {
+    display: none;
+    color: red;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  p.loader {
+    display: none;
+    text-align: center;
+    font-size: 16px;
+  }
