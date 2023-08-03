@@ -7,6 +7,7 @@ const catInfoDiv = document.querySelector('div.cat-info');
 const breedSelect = document.querySelector('select.breed-select');
 
 function updateCatInfo(catData) {
+  catInfoDiv.innerHTML = '';
   catInfoDiv.innerHTML = `
     <img src="${catData.url}" alt="Cat Image">
     <p>Name: ${catData.breeds[0].name}</p>
@@ -57,6 +58,7 @@ function handleBreedSelectChange() {
     })
     .catch(error => {
       // showError(error);
+      catInfoDiv.innerHTML = '';
       Notify.failure(`${errorElement.textContent}`);
     })
     .finally(() => {
