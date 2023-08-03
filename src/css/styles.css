@@ -3,7 +3,7 @@ body {
   margin: 20px;
 }
 
-h1 {
+p {
   text-align: center;
   margin-bottom: 20px;
 }
@@ -25,13 +25,15 @@ div.cat-info img {
   margin-bottom: 10px;
 }
 
-p.error {
+p.error.hidden {
   display: none;
-  color: red;
+}
+
+p.error {
+  color: rgb(196, 46, 46);
   text-align: center;
   font-size: 16px;
 }
-
 p.loader {
   width: 48px;
   height: 48px;

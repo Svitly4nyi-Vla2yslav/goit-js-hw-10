@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 axios.defaults.headers.common['x-api-key'] =
   'live_VhS0gIDTmgOPHiWEPwELZWfTm5nPqfaEnwVhJII0n05SOylY1t3qrzW4fHoO3EVX';
